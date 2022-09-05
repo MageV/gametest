@@ -17,5 +17,15 @@ static String BusName="ViewController";
     // TODO: implement post
   }
 
+  @override
+  void AddItem(String name) {
+    // TODO: implement AddItem
+  }
+
+  @override
+  void ChangeState(bool state, String key) {
+    // TODO: implement ChangeState
+  }
+
 
 }

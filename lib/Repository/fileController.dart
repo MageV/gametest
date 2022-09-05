@@ -42,7 +42,7 @@ class fileController implements baseController {
     Iterable decoded = Encoders.fromJsonRaw(_jsonConfig);
     _configs = List<confStrings>.from(
         decoded.map((data) => confStrings.fromJson(data)));
-    _configs.forEach((element) async {
+    for (var element in _configs)  {
       String data = await rootBundle.loadString(element.file);
       Iterable decoded = Encoders.fromJsonRaw(data);
       switch (element.name) {
@@ -62,27 +62,28 @@ class fileController implements baseController {
             break;
           }
       }
-    });
+    }
   }
 
   void _preloadEntities(Iterable raw) {
     List<gameEntity> entities =
         List<enemyEntity>.from(raw.map((data) => enemyEntity.fromJson(data)));
-    entities.forEach((element) {
+    for (var element in entities) {
       dynamic data=((element)as enemyEntity).toJson();
       Message msg=Message(fileController.BusName,EntityController.BusName, data, false);
       post(msg);
-    });
+    }
 
   }
 
   void _preloadSounds(Iterable raw) {}
   void _preloadPowerups(Iterable raw) {
     List<powerUps> powerups=List<powerUps>.from(raw.map((data) => powerUps.fromJson(data)));
-    powerups.forEach((element) {
+    for (var element in powerups) {
       dynamic data=((element)as powerUps).toJson();
       Message msg=Message(fileController.BusName,powerUpsController.BusName, data, false);
-    });
+      post(msg);
+    }
   }
 
   void _loadSprite(String type, String path) {
@@ -112,5 +113,15 @@ class fileController implements baseController {
           break;
         }
     }
+  }
+
+  @override
+  void AddItem(String name) {
+    // TODO: implement AddItem
+  }
+
+  @override
+  void ChangeState(bool state, String key) {
+    // TODO: implement ChangeState
   }
 }

@@ -19,7 +19,7 @@ class EntityController implements baseController
   late MessageQueueBus messageBus;
   EntityController()
   {
-    _entities=Map();
+    _entities={};
     messageBus=GetIt.instance.get(instanceName: MessageQueueBus.BusName);
     messageBus.messages.stream.listen((event)=>DecodeMessage(event));
   }
@@ -64,7 +64,8 @@ class EntityController implements baseController
     Message msg=Message(EntityController.BusName,ViewController.BusName, Encoders.toJsonEncoder(data),false);
     post(msg);
   }
-  void _removeEntity(String name)
+  @override
+  void AddItem(String name)
   {
     _entities.remove(_entities[name]);
     Map<String,dynamic> data=
@@ -86,9 +87,10 @@ class EntityController implements baseController
     };
     Message msg=Message(EntityController.BusName, ViewController.BusName, Encoders.toJsonEncoder(data), false);
     post(msg);
-    if(_entities[to]?.entityHealth==0) _removeEntity(to);
+    if(_entities[to]?.entityHealth==0) AddItem(to);
   }
-  void _changeState(bool state,String key)
+  @override
+  void ChangeState(bool state,String key)
   {
     _entities[key]?.changeState(state);
   }
