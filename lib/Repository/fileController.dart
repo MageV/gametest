@@ -14,13 +14,13 @@ import 'package:get_it/get_it.dart';
 import '../Models/toolModels/confStrings.dart';
 import 'entityController.dart';
 
-class fileController implements baseController {
-  static String BusName = "FileController";
+class FileController implements baseController {
+  static const String BusName = "FileController";
   @override
   late MessageQueueBus messageBus;
   late List<confStrings> _configs;
 
-  fileController() {
+  FileController() {
     messageBus = GetIt.instance.get(instanceName: MessageQueueBus.BusName);
     messageBus.messages.stream.listen((event) => DecodeMessage(event));
     _loadJsonFromConfig();
@@ -70,7 +70,7 @@ class fileController implements baseController {
         List<enemyEntity>.from(raw.map((data) => enemyEntity.fromJson(data)));
     for (var element in entities) {
       dynamic data=((element)as enemyEntity).toJson();
-      Message msg=Message(fileController.BusName,EntityController.BusName, data, false);
+      Message msg=Message(FileController.BusName,EntityController.BusName, data, false);
       post(msg);
     }
 
@@ -81,7 +81,7 @@ class fileController implements baseController {
     List<powerUps> powerups=List<powerUps>.from(raw.map((data) => powerUps.fromJson(data)));
     for (var element in powerups) {
       dynamic data=((element)as powerUps).toJson();
-      Message msg=Message(fileController.BusName,powerUpsController.BusName, data, false);
+      Message msg=Message(FileController.BusName,PowerUpsController.BusName, data, false);
       post(msg);
     }
   }
@@ -96,7 +96,7 @@ class fileController implements baseController {
                 'action':fileControllerEmissive.FCE_sprite,
                 'image':img
               };
-          Message msg=Message(fileController.BusName, EntityController.BusName, Encoders.toJsonEncoder(data), false);
+          Message msg=Message(FileController.BusName, EntityController.BusName, Encoders.toJsonEncoder(data), false);
           post(msg);
           break;
         }
@@ -108,7 +108,7 @@ class fileController implements baseController {
             'action':fileControllerEmissive.FCE_sprite,
             'image':img
           };
-          Message msg=Message(fileController.BusName, powerUpsController.BusName, Encoders.toJsonEncoder(data), false);
+          Message msg=Message(FileController.BusName, PowerUpsController.BusName, Encoders.toJsonEncoder(data), false);
           post(msg);
           break;
         }

@@ -6,7 +6,7 @@ class ViewController implements baseController
 {
   @override late MessageQueueBus messageBus;
 
-static String BusName="ViewController";
+static const String BusName="ViewController";
   @override
   void DecodeMessage(Message msg) {
     // TODO: implement DecodeMessage

@@ -9,8 +9,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   GetIt.instance.registerSingleton<MessageQueueBus>(MessageQueueBus(),instanceName: MessageQueueBus.BusName);
   GetIt.instance.registerSingleton<EntityController>(EntityController(),instanceName: EntityController.BusName);
-  GetIt.instance.registerSingleton<fileController>(fileController(),instanceName: fileController.BusName);
-  GetIt.instance.registerSingleton<powerUpsController>(powerUpsController(),instanceName: powerUpsController.BusName);
+  GetIt.instance.registerSingleton<FileController>(FileController(),instanceName: FileController.BusName);
+  GetIt.instance.registerSingleton<PowerUpsController>(PowerUpsController(),instanceName: PowerUpsController.BusName);
   runApp(const MyApp());
 }
 

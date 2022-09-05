@@ -14,7 +14,7 @@ import '../Tools/MessageQueueBus.dart';
 class EntityController implements baseController
 {
   late final Map<String,gameEntity> _entities;
-  static String BusName="EntityController";
+  static const String BusName="EntityController";
   @override
   late MessageQueueBus messageBus;
   EntityController()
@@ -26,7 +26,7 @@ class EntityController implements baseController
   @override
   void DecodeMessage(Message msg) {
     if(msg.to==EntityController.BusName) {
-      if(msg.from==fileController.BusName)
+      if(msg.from==FileController.BusName)
         {
           dynamic data=Encoders.fromJsonDecoder(msg.data);
           if(data['action']==null)
@@ -64,8 +64,8 @@ class EntityController implements baseController
     Message msg=Message(EntityController.BusName,ViewController.BusName, Encoders.toJsonEncoder(data),false);
     post(msg);
   }
-  @override
-  void AddItem(String name)
+
+  void _Remove(String name)
   {
     _entities.remove(_entities[name]);
     Map<String,dynamic> data=
@@ -87,7 +87,7 @@ class EntityController implements baseController
     };
     Message msg=Message(EntityController.BusName, ViewController.BusName, Encoders.toJsonEncoder(data), false);
     post(msg);
-    if(_entities[to]?.entityHealth==0) AddItem(to);
+    if(_entities[to]?.entityHealth==0) _Remove(to);
   }
   @override
   void ChangeState(bool state,String key)
