@@ -1,0 +1,16 @@
+{
+  "configs": [
+    {
+      "name": "entities",
+      "file": "assets/config/enemies.json"
+    },
+    {
+      "name": "sounds",
+      "file": "assets/conifg/sounds.json"
+    },
+    {
+      "name": "weapons",
+      "file": "assets/config/weapons.json"
+    }
+  ]
+}

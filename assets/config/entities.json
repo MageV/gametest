@@ -1,0 +1,67 @@
+{
+  "entities": [
+    {
+      "nameEntity": "Lunabi",
+      "entityHealth": "450",
+      "spritePath": "assets/sprites/entities/boss_one.png",
+      "hitPower": "10",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Ivygrass",
+      "entityHealth": "880",
+      "spritePath": "assets/sprites/entities/boss_two.png",
+      "hitPower": "40",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Tombster",
+      "entityHealth": "1120",
+      "spritePath": "assets/sprites/entities/boss_three.png",
+      "hitPower": "100",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Glidestone",
+      "entityHealth": "2260",
+      "spritePath": "assets/sprites/entities/boss_four.png",
+      "hitPower": "200",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Smocka",
+      "entityHealth": "4100",
+      "spritePath": "assets/sprites/entities/boss_five.png",
+      "hitPower": "250",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Clowntorch",
+      "entityHealth": "4500",
+      "spritePath": "assets/sprites/entities/boss_six.png",
+      "hitPower": "400",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Marsattack",
+      "entityHealth": "6500",
+      "spritePath": "assets/sprites/entities/boss_seven.png",
+      "hitPower": "450",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Unknown",
+      "entityHealth": "7500",
+      "spritePath": "assets/sprites/entities/boss_eight.png",
+      "hitPower": "600",
+      "isActive": "false"
+    },
+    {
+      "nameEntity": "Exart",
+      "entityHealth": "10500",
+      "spritePath": "assets/sprites/entities/boss_nine.png",
+      "hitPower": "1000",
+      "isActive": "false"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "sounds": [
+    {
+      "name": "begin",
+      "path": "assets/sounds/begin.mp3"
+    },
+    {
+      "name": "attack",
+      "path": "assets/sounds/attack.mp3"
+    },
+    {
+      "name": "hit",
+      "path": "assets/sounds/hit.mp3"
+    },
+    {
+      "name": "kill",
+      "path": "assets/sounds/kill.mp3"
+    },
+    {
+      "name": "get_new_sword",
+      "path": "assets/sounds/getsw.mp3"
+    },
+    {
+      "name": "boss_win",
+      "path": "assets/sounds/bosswin.mp3"
+    },
+    {
+      "name": "player_win",
+      "path": "assets/sounds/playerwin.mp3"
+    },
+    {
+      "name": "getmoney",
+      "path": "assets/sounds/getmoney.mp3"
+    }
+  ]
+}

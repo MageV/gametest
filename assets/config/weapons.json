@@ -1,0 +1,52 @@
+{
+  "swords": [
+    {
+      "name": "Common sword",
+      "gain": "1.0",
+      "cost": "10",
+      "path": "assets/sprites/powerups/power_1.png"
+    },
+    {
+      "name": "Master Sword",
+      "gain": "1.5",
+      "cost": "50",
+      "path": "assets/sprites/powerups/power_2.png"
+    },
+    {
+      "name": "Katana",
+      "gain": "2",
+      "cost": "150",
+      "path": "assets/sprites/powerups/power_3.png"
+    },
+    {
+      "name": "keyblade",
+      "gain": "3.75",
+      "cost": "550",
+      "path": "assets/sprites/powerups/power_4.png"
+    },
+    {
+      "name": "Ligthsaber",
+      "gain": "4",
+      "cost": "1050",
+      "path": "assets/sprites/powerups/power_5.png"
+    },
+    {
+      "name": "Stormbgringer",
+      "gain": "6",
+      "cost": "2050",
+      "path": "assets/sprites/powerups/power_6.png"
+    },
+    {
+      "name": "Soulreaper",
+      "gain": "6.15",
+      "cost": "2500",
+      "path": "assets/sprites/powerups/power_7.png"
+    },
+    {
+      "name": "Chaos Creature",
+      "gain": "10",
+      "cost": "10000",
+      "path": "assets/sprites/powerups/power_8.png"
+    }
+  ]
+}
