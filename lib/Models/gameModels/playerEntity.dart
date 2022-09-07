@@ -4,7 +4,7 @@ import 'powerUps.dart';
 part 'playerEntity.g.dart';
 
 @JsonSerializable()
-class playerEntity implements gameEntity{
+class PlayerEntity implements gameEntity{
   @override
   late int entityHealth;
 
@@ -23,12 +23,11 @@ class playerEntity implements gameEntity{
   late final powerUps modifier;
 
 
-  playerEntity(
-      this.entityHealth, this.nameEntity, this.spritePath, this.hitPower,this.isActive):super()
-  {
-  }
+  PlayerEntity(
+      this.entityHealth, this.nameEntity, this.spritePath, this.hitPower,this.isActive):super();
 
-  factory playerEntity.fromJson(Map<String,dynamic> json)=>_$playerEntityFromJson(json);
+
+  factory PlayerEntity.fromJson(Map<String,dynamic> json)=>_$playerEntityFromJson(json);
   Map<String,dynamic> toJson()=>_$playerEntityToJson(this);
 
   @override

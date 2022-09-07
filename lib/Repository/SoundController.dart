@@ -2,11 +2,17 @@ import 'package:gametest/Models/toolModels/Message.dart';
 import 'package:gametest/Repository/baseController.dart';
 import 'package:gametest/Tools/MessageQueueBus.dart';
 
-class ViewController implements baseController
+class SoundController implements baseController
 {
-  @override late MessageQueueBus messageBus;
+  static const String BusName="SoundController";
+  @override
+  late final MessageQueueBus messageBus;
 
-static const String BusName="ViewController";
+  @override
+  void ChangeState(bool state, String key) {
+    // TODO: implement ChangeState
+  }
+
   @override
   void DecodeMessage(Message msg) {
     // TODO: implement DecodeMessage
@@ -17,14 +23,9 @@ static const String BusName="ViewController";
     // TODO: implement post
   }
 
-
-
   @override
-  void ChangeState(bool state, String key) {
-    // TODO: implement ChangeState
+  void AssignModifier(String name,String to) {
+    //not implemented here - stub
   }
-
-
-
 
 }

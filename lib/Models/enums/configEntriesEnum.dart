@@ -1,4 +1,4 @@
-enum ConfigEntries
+enum ConfigEntriesEnum
 {
   CE_Entity,
   CE_PowerUps,

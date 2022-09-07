@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gametest/Models/enums/fileControllerEntries.dart';
+import 'package:gametest/Models/enums/fileControllerEnum.dart';
 import 'package:gametest/Models/gameModels/GameEntity.dart';
 import 'package:gametest/Models/gameModels/enemyEntity.dart';
 import 'package:gametest/Models/gameModels/powerUps.dart';
 import 'package:gametest/Models/toolModels/Message.dart';
+import 'package:gametest/Repository/SoundController.dart';
+import 'package:gametest/Repository/ViewController.dart';
 import 'package:gametest/Repository/baseController.dart';
 import 'package:gametest/Repository/powerUpsController.dart';
 import 'package:gametest/Tools/Encoders.dart';
 import 'package:gametest/Tools/MessageQueueBus.dart';
 import 'package:get_it/get_it.dart';
 
+import '../Models/enums/ResourceTypeEnum.dart';
 import '../Models/toolModels/confStrings.dart';
 import 'entityController.dart';
 
@@ -28,6 +31,28 @@ class FileController implements baseController {
 
   @override
   void DecodeMessage(Message msg) {
+    if(msg.to==FileController.BusName)
+      {
+       switch(msg.from)
+       {
+         case EntityController.BusName:
+           {
+             break;
+           }
+         case PowerUpsController.BusName:
+           {
+             break;
+           }
+         case ViewController.BusName:
+           {
+             break;
+           }
+         case SoundController.BusName:
+           {
+             break;
+           }
+       }
+      }
     // TODO: implement DecodeMessage
   }
 
@@ -86,42 +111,22 @@ class FileController implements baseController {
     }
   }
 
-  void _loadSprite(String type, String path) {
-    switch (type) {
-      case "entities":
-        {
+  void _loadSprite(ResourceTypeEnum rctype, String path) {
           Image img=Image.asset(path);
           Map<String,dynamic> data=
               {
-                'action':fileControllerEmissive.FCE_sprite,
-                'image':img
+                'action':fileControllerEnum.FCE_sprite,
+                'image':img,
+                'type':rctype
               };
-          Message msg=Message(FileController.BusName, EntityController.BusName, Encoders.toJsonEncoder(data), false);
+          Message msg=Message(FileController.BusName, ViewController.BusName, Encoders.toJsonEncoder(data), false);
           post(msg);
-          break;
-        }
-      case "powerups":
-        {
-          Image img=Image.asset(path);
-          Map<String,dynamic> data=
-          {
-            'action':fileControllerEmissive.FCE_sprite,
-            'image':img
-          };
-          Message msg=Message(FileController.BusName, PowerUpsController.BusName, Encoders.toJsonEncoder(data), false);
-          post(msg);
-          break;
-        }
-    }
-  }
-
-  @override
-  void AddItem(String name) {
-    // TODO: implement AddItem
   }
 
   @override
   void ChangeState(bool state, String key) {
-    // TODO: implement ChangeState
+    //not implemented here - stub
   }
+
+
 }

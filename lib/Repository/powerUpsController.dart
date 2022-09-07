@@ -3,7 +3,7 @@ import 'package:gametest/Repository/baseController.dart';
 import 'package:gametest/Repository/fileController.dart';
 import 'package:gametest/Tools/MessageQueueBus.dart';
 import 'package:get_it/get_it.dart';
-import 'package:gametest/Models/enums/fileControllerEntries.dart';
+import 'package:gametest/Models/enums/fileControllerEnum.dart';
 
 import '../Models/gameModels/powerUps.dart';
 import '../Tools/Encoders.dart';
@@ -32,9 +32,9 @@ class PowerUpsController implements baseController
             if(data['action']==null)
             {
               powerUps extender=powerUps.fromJson(msg.data);
-              _AddItem(extender);
+              _addItem(extender);
             }
-            else if(data['action']==fileControllerEmissive.FCE_sprite)
+            else if(data['action']==fileControllerEnum.FCE_sprite)
             {
 
             }
@@ -47,9 +47,8 @@ class PowerUpsController implements baseController
   void post(Message msg) {
     messageBus.push(msg);
   }
-
-  @override
-  void _AddItem(powerUps name) {
+  
+  void _addItem(powerUps name) {
     _powerUpsList.putIfAbsent(name.name, () => name);
   }
 
@@ -57,6 +56,8 @@ class PowerUpsController implements baseController
   void ChangeState(bool state, String key) {
     // TODO: implement ChangeState
   }
+
+
 
 
 }

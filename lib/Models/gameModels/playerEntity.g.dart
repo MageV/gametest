@@ -6,7 +6,7 @@ part of 'playerEntity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-playerEntity _$playerEntityFromJson(Map<String, dynamic> json) => playerEntity(
+PlayerEntity _$playerEntityFromJson(Map<String, dynamic> json) => PlayerEntity(
       json['entityHealth'] as int,
       json['nameEntity'] as String,
       json['spritePath'] as String,
@@ -14,7 +14,7 @@ playerEntity _$playerEntityFromJson(Map<String, dynamic> json) => playerEntity(
       json['isActive'] as bool,
     )..modifier = powerUps.fromJson(json['modifier'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$playerEntityToJson(playerEntity instance) =>
+Map<String, dynamic> _$playerEntityToJson(PlayerEntity instance) =>
     <String, dynamic>{
       'entityHealth': instance.entityHealth,
       'nameEntity': instance.nameEntity,
